@@ -13,7 +13,7 @@ public class Employer extends AbstractEntity {
     }
 
     public Employer (String location){
-        super(); //unsure about super here
+        super();
         this.location = location;
     }
 

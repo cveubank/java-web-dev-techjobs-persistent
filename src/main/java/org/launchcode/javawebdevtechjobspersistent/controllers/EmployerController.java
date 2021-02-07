@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("employers")
+@RequestMapping("employers") //nothing at base route to employers -- need /nothing route
 public class EmployerController {
 
     @Autowired
@@ -49,4 +49,15 @@ public class EmployerController {
             return "redirect:../";
         }
     }
+
+    //method which will route to index
+    @GetMapping
+    public String displayViewOfAllEmployers(){
+        employerRepository.findAll();
+        return "employers/index";
+    }
+
+
+
+
 }
