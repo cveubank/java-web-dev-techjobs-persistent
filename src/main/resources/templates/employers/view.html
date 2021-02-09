@@ -11,11 +11,11 @@
     <p th:text="${'Name: ' + employer.name}"></p>
     <p th:text="${'Location: ' + employer.location}"></p>
     <p> Jobs:
-    <ul>
-        <li th:each="job : ${employer.jobs}">
-            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
-        </li>
-    </ul>
+        <ul>
+            <li th:each="job : ${employer.jobs}">
+                <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
+            </li>
+        </ul>
     </p>
 
 </div>

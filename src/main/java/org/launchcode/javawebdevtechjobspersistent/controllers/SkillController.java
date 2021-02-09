@@ -20,8 +20,8 @@ public class SkillController {
 
         @GetMapping("add")
         public String displayAddSkillForm(Model model) {
-            model.addAttribute(new Skill());
-            return "skill/add";
+            model.addAttribute("skill", new Skill());
+            return "skills/add";
         }
 
         @PostMapping("add")
@@ -29,7 +29,7 @@ public class SkillController {
                                              Errors errors, Model model) {
 
             if(errors.hasErrors()) {
-                return "skill/add";
+                return "skills/add";
             } else{
                 skillRepository.save(newSkill);
             }
@@ -43,10 +43,16 @@ public class SkillController {
             if (optSkill.isPresent()) {
                 Skill skill = (Skill) optSkill.get();
                 model.addAttribute("skill", skill);
-                return "skill/view";
+                return "skills/view";
             } else {
                 return "redirect:../";
             }
         }
+
+    @RequestMapping("")
+    public String displayViewOfAllEmployers(Model model){
+        model.addAttribute("skills",  skillRepository.findAll());
+        return "skills/index";
+    }
     }
 

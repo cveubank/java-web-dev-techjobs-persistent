@@ -1,45 +1,27 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
-public class Job{
+public class Job extends AbstractEntity{
 
-    @Id
-    @GeneratedValue
-    private int id;
+    @ManyToOne
+    @NotNull(message = "Employer is required.")
+    private String Employer;
 
-    private String name;
-
-    private String employer;
     private String skills;
 
     public Job() {
     }
 
-    public Job(String anEmployer, String someSkills) {
-        super();
-        this.employer = anEmployer;
-        this.skills = someSkills;
-    }
-
-    // Getters and setters.
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmployer() {
-        return employer;
+        return Employer;
     }
 
     public void setEmployer(String employer) {
-        this.employer = employer;
+        this.Employer = Employer;
     }
 
     public String getSkills() {
