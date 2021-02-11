@@ -7,6 +7,7 @@ import java.util.ArrayList;
 /**
  * Created by LaunchCode
  */
+
 public class JobData {
 
 

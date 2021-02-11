@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("employers") //nothing at base route to employers -- need /nothing route
+@RequestMapping("employers")
 public class EmployerController {
 
     @Autowired
@@ -23,7 +23,6 @@ public class EmployerController {
         model.addAttribute("employers",  employerRepository.findAll());
         return "employers/index";
     }
-
 
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
